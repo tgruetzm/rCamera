@@ -21,31 +21,8 @@ solarChan = AnalogIn(ads, ADS.P2, ADS.P3)
 
 while True:
   battV = battChan.voltage *8
-  SOC = 0
-  range = .1
-
-  if(battV >= 12.6-range):
-    SOC = 100
-  elif(battV >=12.3-range):
-    SOC = 92
-  elif(battV >=12.0-range):
-    SOC = 80
-  elif(battV >=11.7-range):
-    SOC = 72
-  elif(battV >=11.4-range):
-    SOC = 60
-  elif(battV >=11.1-range):
-    SOC = 50
-  elif(battV >=10.8-range):
-    SOC = 33
-  elif(battV >=10.5-range):
-    SOC = 17
-  elif(battV >=10.2-range):
-    SOC = 8
-  elif(battV >=9.9-range):
-    SOC = 5
-  elif(battV >=9.6-range):
-    SOC = 0
-
-  print("Battery {:>3}% {:>5.3f} v".format(SOC, battV))
+  SOC = 36.4*battV-357 #estimate for SOC
+  if(battV < 10.0):
+   SOC = 0
+  print("Battery {:>3.0f}% {:>5.3f} v".format(SOC, battV))
   time.sleep(0.5)

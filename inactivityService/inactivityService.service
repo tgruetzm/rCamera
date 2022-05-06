@@ -1,0 +1,14 @@
+[Unit]
+Description=Shut down pi after inactivity
+After=network.target
+
+[Service]
+ExecStart=inactivityService.sh
+WorkingDirectory=/home/pi/rCamera/inactivityService
+StandardOutput=inherit
+StandardError=inherit
+Restart=alwaysB
+User=inactivityService
+
+[Install]
+WantedBy=multi-user.target
