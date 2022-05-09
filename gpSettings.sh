@@ -42,8 +42,8 @@ then
 	gphoto2 --get-config /main/capturesettings/autoexposuremodedial
 elif [ "$1" == "aem" ] && [ "$#" -eq 2 ]
 then
-	gphoto2 --set-config /main/capturesettings/autoexposuremodedial=$2
-	gphoto2 --get-config /main/capturesettings/autoexposuremodedial
+	gphoto2 --set-config /main/capturesettings/autoexposuremode=$2
+	gphoto2 --get-config /main/capturesettings/autoexposuremode
 		
 else
 
@@ -59,7 +59,7 @@ else
 	value=$(gphoto2 --get-config /main/capturesettings/exposurecompensation | grep Current | cut -c 9-50)
 	echo "Exposure Comp: " $value
 	
-	value=$(gphoto2 --get-config /main/capturesettings/autoexposuremodedial | grep Current | cut -c 9-50)
+	value=$(gphoto2 --get-config /main/capturesettings/autoexposuremode | grep Current | cut -c 9-50)
 	echo "Exposure Mode: " $value
 	
 fi

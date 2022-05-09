@@ -9,6 +9,6 @@ convert $FILE -quality 75% -resize 15% $FILE-15.JPG;
 #-quality 80%
 convert $FILE -quality 75% -resize 50% $FILE-50.JPG;
 
-sz $FILE-15.JPG
+sz --framelen 100 $FILE-15.JPG
 
 cd rCamera
