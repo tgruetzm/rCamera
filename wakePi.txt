@@ -1,0 +1,20 @@
+init:
+  send "+++\c"
+  print "+++"
+  expect "OK" timeout 2 goto init
+
+getRSSI:
+  send "ATI7"
+  expect "temp=" timeout 2 goto getRSSI  
+
+sendHigh:
+  send "RTPC=4,1"
+  expect "OK" timeout 2 goto sendHigh
+  sleep 3
+
+sendLow:
+  send "RTPC=4,0"
+  expect "OK" timeout 2 goto sendLow
+
+end:
+  send "ATO"
