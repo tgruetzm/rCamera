@@ -20,12 +20,11 @@ sunset = datetime(tomorrow.year, tomorrow.month, tomorrow.day,ss.hour, ss.minute
 sunriseTimes = [-20,-10,0,10,20,30]
 sunsetTimes = [-30,-20,-10,0,10,20]
 
-timeList = []
 
 for t in sunriseTimes:
   t1 = sunrise + timedelta(minutes = t)
-  timeList.append(t1)   
+  print(t1.timestamp())
 
 for t in sunsetTimes:
   t1 = sunset + timedelta(minutes = t)
-  timeList.append(t1)  
+  print(t1.timestamp())
