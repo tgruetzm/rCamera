@@ -12,7 +12,7 @@ today = datetime.now()
 sr = sun.get_local_sunrise_time(today)
 ss = sun.get_local_sunset_time(today)
 
-tomorrow = today + timedelta(days = 1)
+tomorrow = today + timedelta(days = 0)
 
 sunrise = datetime(tomorrow.year, tomorrow.month, tomorrow.day,sr.hour, sr.minute,  tzinfo=timezone(timedelta(hours =-6)))
 sunset = datetime(tomorrow.year, tomorrow.month, tomorrow.day,ss.hour, ss.minute,  tzinfo=timezone(timedelta(hours =-6)))

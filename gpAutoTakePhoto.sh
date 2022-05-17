@@ -1,0 +1,4 @@
+
+
+echo "simulating photo"
+date
