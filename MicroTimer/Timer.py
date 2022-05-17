@@ -23,8 +23,12 @@ sunsetTimes = [-30,-20,-10,0,10,20]
 
 for t in sunriseTimes:
   t1 = sunrise + timedelta(minutes = t)
-  print(t1.timestamp())
+  print(t1.strftime("%I:%M %p %Y-%m-%d"))
+
+midday = datetime(tomorrow.year, tomorrow.month, tomorrow.day,14, 0,  tzinfo=timezone(timedelta(hours =-6)))
+print(midday.strftime("%I:%M %p %Y-%m-%d"))
+
 
 for t in sunsetTimes:
   t1 = sunset + timedelta(minutes = t)
-  print(t1.timestamp())
+  print(t1.strftime("%I:%M %p %Y-%m-%d"))
