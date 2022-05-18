@@ -26,11 +26,11 @@ ser.flush()
 
 message = []
 while True:
-  data = ser.read(1)
-  if data is not None:
-    if chr(data[0]) == "\n":
-      break
-    message.append(chr(data[0]))
+    data = ser.read(1)
+    if data is not None:
+        if chr(data[0]) == "\n":
+            break
+        message.append(chr(data[0]))
 
 message_string = "".join(message)
 
@@ -39,22 +39,33 @@ if message_string == 'send next time':
 
 tq = open('timeQueue.txt', 'r')
 lines = tq.readlines()
+lIndex = 0
 
 message = []
-while True:
-  data = ser.read(1)
-  if data is not None:
-    if chr(data[0]) == "\n":
-      break
-    message.append(chr(data[0]))
+message_string = ""
+while message_string == "send next time"
+    if lIndex > len(lines):
+        break
 
-message_string = "".join(message)
+    nextLine = lines[lIndex]
+    lIndex += 1
+    nextTime = datetime.strptime(nextLine, "%I:%M %p %Y-%m-%d")
+    nextTimeString = str(nextTime.timestamp()) + "\n"
+    print(nextTimeString)
 
-nextTimeString = str(nextTime.timestamp()) + "\n"
-print(nextTimeString)
+    print("pi:" + nextTimeString)
+    ser.write(bytes(nextTimeString,"ascii"))
+    ser.flush()
+    
+    while True:
+        data = ser.read(1)
+        if data is not None:
+            if chr(data[0]) == "\n":
+                break
+            message.append(chr(data[0]))
 
-print("pi:" + nextTimeString)
-ser.write(bytes(nextTimeString,"ascii"))
-ser.flush()
+    message_string = "".join(message)
+    if message_string == "ack"
+        break
 
 ser.close()             # close port
