@@ -20,13 +20,18 @@ sunset = datetime(tomorrow.year, tomorrow.month, tomorrow.day,ss.hour, ss.minute
 sunriseTimes = [-20,-10,0,10,20,30]
 sunsetTimes = [-30,-20,-10,0,10,20]
 
+customTimes = ["8:25","8:27","8:29","8:31","8:33","8:34","8:35","8:37","8:39"]
 
 for t in sunriseTimes:
   t1 = sunrise + timedelta(minutes = t)
   print(t1.strftime("%I:%M %p %Y-%m-%d"))
 
-midday = datetime(tomorrow.year, tomorrow.month, tomorrow.day,14, 0,  tzinfo=timezone(timedelta(hours =-6)))
-print(midday.strftime("%I:%M %p %Y-%m-%d"))
+for t in customTimes:
+  c = t.split(':')
+  # print(c)
+  # print(int(c[0]))
+  t1 = datetime(tomorrow.year, tomorrow.month, tomorrow.day,int(c[0]),int(c[1]),  tzinfo=timezone(timedelta(hours =-6)))
+  print(t1.strftime("%I:%M %p %Y-%m-%d"))
 
 
 for t in sunsetTimes:

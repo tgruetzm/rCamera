@@ -1,4 +1,0 @@
-
-
-echo "simulating photo"
-date
