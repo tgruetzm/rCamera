@@ -20,7 +20,7 @@ sunset = datetime(tomorrow.year, tomorrow.month, tomorrow.day,ss.hour, ss.minute
 sunriseTimes = [-20,-10,0,10,20,30]
 sunsetTimes = [-30,-20,-10,0,10,20]
 
-customTimes = ["8:25","8:27","8:29","8:31","8:33","8:34","8:35","8:37","8:39"]
+customTimes = ["10:22","10:23","10:25","10:26","10:27","10:28","10:30"]
 
 for t in sunriseTimes:
   t1 = sunrise + timedelta(minutes = t)

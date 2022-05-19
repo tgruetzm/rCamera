@@ -15,10 +15,5 @@ cd ../../photos
 
 cd ../rCamera/MicroTimer
 
-nextTime=$(head -1 timeQueue.txt)
-
-echo $nextTime
-
-python3 featherCom.py $nextTime 
-sed -i 1d timeQueue.txt
+python3 featherCom.py
 

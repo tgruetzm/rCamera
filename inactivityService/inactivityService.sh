@@ -5,6 +5,8 @@ do
   sleep 90
   duration=$(finger | grep ttyAMA0 | cut -c 41-45)
   ssh=$(finger | grep pi | grep pts)
+  
+  echo "duration:" $duration >> /home/pi/rCamera/inactivityService/out.log
 
   if [ "$ssh" != "" ]
   then
@@ -17,7 +19,7 @@ do
 	echo 'nologon' >> /home/pi/rCamera/inactivityService/out.log	
 	date >> /home/pi/rCamera/inactivityService/out.log
   	cat pwd.txt | sudo -S shutdown now
-  elif [ $duration -gt 15 ]
+  elif (( $duration > 1 ))
   then 
 	echo 'inactive' >> /home/pi/rCamera/inactivityService/out.log
         date >> /home/pi/rCamera/inactivityService/out.log
