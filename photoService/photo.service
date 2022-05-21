@@ -1,0 +1,14 @@
+[Unit]
+Description=Take photos at specific times during the day
+After=network.target
+
+[Service]
+ExecStart=photoService.sh
+WorkingDirectory=/home/pi/rCamera/photoService
+StandardOutput=inherit
+StandardError=inherit
+Restart=alwaysB
+User=inactivityService
+
+[Install]
+WantedBy=multi-user.target

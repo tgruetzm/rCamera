@@ -2,9 +2,8 @@
 
 while IFS= read -r line; do
   echo "scheduling for %s\n'" "$line" >> log.txt
-  at -f gpAutoTakePhoto.sh "$line"
   echo $line >> timeQueue.txt
-done < <(python3 Times.py)
+done < <(python3 TimeScheduler.py)
 
 python3 featherCom.py >> log.txt
 
