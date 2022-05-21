@@ -2,7 +2,7 @@
  
 while true
 do
-  sleep 90
+  sleep 240
   duration=$(finger | grep ttyAMA0 | cut -c 41-45)
   ssh=$(finger | grep pi | grep pts)
   

@@ -15,5 +15,5 @@ cd ../../photos
 
 cd ../rCamera/MicroTimer
 
-python3 featherCom.py
+python3 featherCom.py >> log.txt
 

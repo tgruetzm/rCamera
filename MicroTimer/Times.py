@@ -18,9 +18,9 @@ sunrise = datetime(tomorrow.year, tomorrow.month, tomorrow.day,sr.hour, sr.minut
 sunset = datetime(tomorrow.year, tomorrow.month, tomorrow.day,ss.hour, ss.minute,  tzinfo=timezone(timedelta(hours =-6)))
 
 sunriseTimes = [-20,-10,0,10,20,30]
-sunsetTimes = [-30,-20,-10,0,10,20]
+sunsetTimes = [-40,-30,-20,-10,0,10,20]
 
-customTimes = ["10:22","10:23","10:25","10:26","10:27","10:28","10:30"]
+customTimes = ["16:34"]
 
 for t in sunriseTimes:
   t1 = sunrise + timedelta(minutes = t)

@@ -43,8 +43,9 @@ def negotiateNextTime():
         if len(lines) == 0:
             break
 
-        nextLine = lines.pop(0).replace("\n","")
+        nextLine = lines[0].replace("\n","")
         nextTime = datetime.strptime(nextLine, "%I:%M %p %Y-%m-%d")
+        print("pi: next time:" + str(nextTime))
         nextTimeString = str(nextTime.timestamp()) + "\n"
 
         print("pi:" + nextTimeString)
@@ -69,6 +70,8 @@ def negotiateNextTime():
             tq.writelines(lines)
             tq.close() 
             return True
+        # if time is not valid then go to the next
+        lines.pop(0)
 
 
 ser = serial.Serial('/dev/ttyAMA1',timeout = 10)  # open serial port
