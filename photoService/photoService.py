@@ -17,6 +17,6 @@ if now > nextTime:
   tq = open("timeQueue.txt", "w") 
   tq.writelines(lines)
   tq.close() 
-  return "true"
-return "false"
+  print("true")
+print("false")
 

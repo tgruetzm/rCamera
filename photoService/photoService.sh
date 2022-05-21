@@ -8,7 +8,7 @@ do
 
   while [ takePhoto == "true" ]
   do
-    takePhoto=$(python3 photoService.py >> log.txt)
+    takePhoto=$(python3 photoService.py)
     if [ takePhoto == "true" ]
       ./gpAutoTakePhoto.sh >> log.txt
     fi
