@@ -1,0 +1,97 @@
+taking photo
+Sat 21 May 2022 11:40:37 AM MDT
+taking photo
+Sat 21 May 2022 11:43:33 AM MDT
+Writing: IMG_4774.JPG
+taking photo
+Sat 21 May 2022 11:43:37 AM MDT
+Writing: IMG_4775.JPG
+taking photo
+Sat 21 May 2022 11:43:41 AM MDT
+taking photo
+Sat 21 May 2022 11:45:02 AM MDT
+Writing:
+start:1653155112.6691573
+pi:hello feather,2022-05-21T17:45:12.669208+00:00
+
+taking photo
+Sat 21 May 2022 11:45:40 AM MDT
+Writing:
+start:1653155150.84349
+pi:hello feather,2022-05-21T17:45:50.843541+00:00
+
+start:1653155160.9324057
+pi:hello feather,2022-05-21T17:46:00.932469+00:00
+
+taking photo
+Sat 21 May 2022 11:46:10 AM MDT
+Writing: IMG_4777.JPG
+start:1653155174.6638803
+pi:hello feather,2022-05-21T17:46:14.663930+00:00
+
+start:1653155184.7510018
+pi:hello feather,2022-05-21T17:46:24.751067+00:00
+
+taking photo
+Sat 21 May 2022 11:49:13 AM MDT
+Writing: IMG_4778.JPG
+start:1653155357.417901
+pi:hello feather,2022-05-21T17:49:17.417952+00:00
+
+f:send next time
+pi: next time:2022-05-21 20:41:00
+pi:1653187260.0
+
+start:1653155367.5624394
+pi:hello feather,2022-05-21T17:49:27.562500+00:00
+
+f:send next time
+pi: next time:2022-05-21 20:41:00
+pi:1653187260.0
+
+f:ack
+start:1653155567.4058635
+pi:hello feather,2022-05-21T17:52:47.405912+00:00
+
+scheduling for %s\n' 12:00 PM 2022-05-21
+scheduling for %s\n' 12:02 PM 2022-05-21
+scheduling for %s\n' 12:04 PM 2022-05-21
+scheduling for %s\n' 12:06 PM 2022-05-21
+scheduling for %s\n' 08:31 PM 2022-05-21
+scheduling for %s\n' 08:41 PM 2022-05-21
+scheduling for %s\n' 08:51 PM 2022-05-21
+scheduling for %s\n' 09:01 PM 2022-05-21
+scheduling for %s\n' 09:11 PM 2022-05-21
+scheduling for %s\n' 09:21 PM 2022-05-21
+scheduling for %s\n' 09:31 PM 2022-05-21
+start:1653155584.7824874
+pi:hello feather,2022-05-21T17:53:04.782538+00:00
+
+scheduling for %s\n' 12:00 PM 2022-05-21
+scheduling for %s\n' 12:02 PM 2022-05-21
+scheduling for %s\n' 12:04 PM 2022-05-21
+scheduling for %s\n' 12:06 PM 2022-05-21
+scheduling for %s\n' 08:31 PM 2022-05-21
+scheduling for %s\n' 08:41 PM 2022-05-21
+scheduling for %s\n' 08:51 PM 2022-05-21
+scheduling for %s\n' 09:01 PM 2022-05-21
+scheduling for %s\n' 09:11 PM 2022-05-21
+scheduling for %s\n' 09:21 PM 2022-05-21
+scheduling for %s\n' 09:31 PM 2022-05-21
+start:1653155709.265964
+pi:hello feather,2022-05-21T17:55:09.266012+00:00
+
+start:1653155719.3323877
+pi:hello feather,2022-05-21T17:55:19.332444+00:00
+
+taking photo
+Sat 21 May 2022 11:57:04 AM MDT
+Writing: IMG_4779.JPG
+start:1653155828.7376564
+pi:hello feather,2022-05-21T17:57:08.737706+00:00
+
+f:send next time
+pi: next time:2022-05-21 12:00:00
+pi:1653156000.0
+
+f:ack

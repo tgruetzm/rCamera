@@ -3,8 +3,9 @@ import sys
 import time
 import datetime
 from datetime import datetime, timezone
+import RPi.GPIO as GPIO
 
-waitMax = 10; # seconds
+waitMax = 40; # seconds
 
 def handshake():
     now = datetime.now(timezone.utc)
@@ -14,6 +15,15 @@ def handshake():
     ser.write(bytes(output,"ascii"))     # write a string
     ser.flush()
 
+def resetFeather():
+    GPIO.setwarnings(False)
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(23, GPIO.OUT)
+
+    GPIO.output(23, GPIO.HIGH)
+    time.sleep(.5)
+    GPIO.output(23, GPIO.LOW)
+    time.sleep(10)
 
 def negotiateNextTime():
     message = []
@@ -43,7 +53,7 @@ def negotiateNextTime():
         if len(lines) == 0:
             break
 
-        nextLine = lines[0].replace("\n","")
+        nextLine = lines.pop(0).replace("\n","")
         nextTime = datetime.strptime(nextLine, "%I:%M %p %Y-%m-%d")
         print("pi: next time:" + str(nextTime))
         nextTimeString = str(nextTime.timestamp()) + "\n"
@@ -62,16 +72,12 @@ def negotiateNextTime():
                 if chr(data[0]) == "\n":
                     break
                 message.append(chr(data[0]))
-       
+
         message_string = "".join(message)
         print("f:" + message_string)
         if message_string == "ack":
-            tq = open("timeQueue.txt", "w") 
-            tq.writelines(lines)
-            tq.close() 
             return True
         # if time is not valid then go to the next
-        lines.pop(0)
 
 
 ser = serial.Serial('/dev/ttyAMA1',timeout = 10)  # open serial port
@@ -80,6 +86,7 @@ while True:
     startTime = time.time()
     print("start:" + str(startTime))
     try:
+        #resetFeather()
         handshake()
         success = negotiateNextTime() 
         if success is True:

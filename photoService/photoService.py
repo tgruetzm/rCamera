@@ -9,7 +9,7 @@ tq.close()
 
 nextLine = lines.pop(0).replace("\n","")
 nextTime = datetime.strptime(nextLine, "%I:%M %p %Y-%m-%d")
-print("photoService: next time:" + str(nextTime))
+# print("photoService: next time:" + str(nextTime))
 
 now = datetime.now()
 
@@ -18,5 +18,6 @@ if now > nextTime:
   tq.writelines(lines)
   tq.close() 
   print("true")
-print("false")
+else:
+  print("false")
 

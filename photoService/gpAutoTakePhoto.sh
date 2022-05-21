@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo "taking photo" >> log.txt
-date >> log.txt
+echo "taking photo"
+date
 
 ../focusCam.py
 
@@ -13,7 +13,5 @@ cd ../../photos
 #-quality 80%
 #convert $FILE -quality 75% -resize 50% $FILE-50.JPG;
 
-cd ../rCamera/MicroTimer
-
-python3 featherCom.py >> log.txt
+cd ../rCamera/photoService
 
