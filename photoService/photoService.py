@@ -13,10 +13,14 @@ nextTime = datetime.strptime(nextLine, "%I:%M %p %Y-%m-%d")
 
 now = datetime.now()
 
+if len(lines) < 4:
+  print("schedule")
+  sys.exit(0)
+
 if now > nextTime:
   tq = open("timeQueue.txt", "w") 
   tq.writelines(lines)
-  tq.close() 
+  tq.close()
   print("true")
 else:
   print("false")

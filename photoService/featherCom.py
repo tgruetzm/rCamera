@@ -5,7 +5,18 @@ import datetime
 from datetime import datetime, timezone
 import RPi.GPIO as GPIO
 
-waitMax = 40; # seconds
+waitMax = 10; # seconds
+
+def resetFeather():
+    GPIO.setwarnings(False)
+
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(23, GPIO.OUT)
+
+    GPIO.output(23, GPIO.HIGH)
+    time.sleep(.5)
+    GPIO.output(23, GPIO.LOW)
+    time.sleep(15)
 
 def handshake():
     now = datetime.now(timezone.utc)
@@ -15,15 +26,23 @@ def handshake():
     ser.write(bytes(output,"ascii"))     # write a string
     ser.flush()
 
-def resetFeather():
-    GPIO.setwarnings(False)
-    GPIO.setmode(GPIO.BCM)
-    GPIO.setup(23, GPIO.OUT)
+    message = []
+    while True:
+        now = time.time()
+        if now >= startTime + waitMax:
+            return False
+        data = ser.read(1)
+        # print(data)
+        if data != b'':
+            if chr(data[0]) == "\n":
+               break
+            message.append(chr(data[0]))
 
-    GPIO.output(23, GPIO.HIGH)
-    time.sleep(.5)
-    GPIO.output(23, GPIO.LOW)
-    time.sleep(10)
+        message_string = "".join(message)
+
+    if message_string == 'ack':
+        print("f:" + message_string)
+        return True
 
 def negotiateNextTime():
     message = []
@@ -72,25 +91,29 @@ def negotiateNextTime():
                 if chr(data[0]) == "\n":
                     break
                 message.append(chr(data[0]))
-
+       
         message_string = "".join(message)
         print("f:" + message_string)
-        if message_string == "ack":
+        if message_string == "success":
             return True
-        # if time is not valid then go to the next
 
 
-ser = serial.Serial('/dev/ttyAMA1',timeout = 10)  # open serial port
-
+ser = serial.Serial('/dev/ttyAMA1',timeout = 1)  # open serial port
+handshakeTries = 0
 while True:
     startTime = time.time()
     print("start:" + str(startTime))
     try:
-        #resetFeather()
-        handshake()
-        success = negotiateNextTime() 
+        if handshake() is False:
+            handshakeTries +=1
+            if handshakeTries > 3:
+                handshakeTries = 0
+                resetFeather()
+            continue
+        success = negotiateNextTime()
         if success is True:
             break
+        
     except ValueError:
         print("error, continuing to try again")
         continue

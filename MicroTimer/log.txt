@@ -218,3 +218,70 @@ start:1653018756.9479985
 pi:hello feather,2022-05-20T03:52:36.948060+00:00
 
 f:send next time
+scheduling for %s\n' 05:35 AM 2022-05-21
+scheduling for %s\n' 05:45 AM 2022-05-21
+scheduling for %s\n' 05:55 AM 2022-05-21
+scheduling for %s\n' 06:05 AM 2022-05-21
+scheduling for %s\n' 06:15 AM 2022-05-21
+scheduling for %s\n' 06:25 AM 2022-05-21
+scheduling for %s\n' 04:34 PM 2022-05-21
+scheduling for %s\n' 08:31 PM 2022-05-21
+scheduling for %s\n' 08:41 PM 2022-05-21
+scheduling for %s\n' 08:51 PM 2022-05-21
+scheduling for %s\n' 09:01 PM 2022-05-21
+scheduling for %s\n' 09:11 PM 2022-05-21
+scheduling for %s\n' 09:21 PM 2022-05-21
+scheduling for %s\n' 09:31 PM 2022-05-21
+start:1653152608.0146294
+pi:hello feather,2022-05-21T17:03:28.014679+00:00
+
+f:send next time
+pi: next time:2022-05-21 05:35:00
+pi:1653132900.0
+
+scheduling for %s\n' 05:35 AM 2022-05-21
+scheduling for %s\n' 05:45 AM 2022-05-21
+scheduling for %s\n' 05:55 AM 2022-05-21
+scheduling for %s\n' 06:05 AM 2022-05-21
+scheduling for %s\n' 06:15 AM 2022-05-21
+scheduling for %s\n' 06:25 AM 2022-05-21
+scheduling for %s\n' 04:34 PM 2022-05-21
+scheduling for %s\n' 08:31 PM 2022-05-21
+scheduling for %s\n' 08:41 PM 2022-05-21
+scheduling for %s\n' 08:51 PM 2022-05-21
+scheduling for %s\n' 09:01 PM 2022-05-21
+scheduling for %s\n' 09:11 PM 2022-05-21
+scheduling for %s\n' 09:21 PM 2022-05-21
+scheduling for %s\n' 09:31 PM 2022-05-21
+start:1653152617.8073483
+pi:hello feather,2022-05-21T17:03:37.807399+00:00
+
+f:send next time
+pi: next time:2022-05-21 05:35:00
+pi:1653132900.0
+
+f:send next time
+pi: next time:2022-05-21 05:45:00
+pi:1653133500.0
+
+f:send next time
+pi: next time:2022-05-21 05:55:00
+pi:1653134100.0
+
+f:send next time
+pi: next time:2022-05-21 06:05:00
+pi:1653134700.0
+
+f:send next time
+pi: next time:2022-05-21 06:15:00
+pi:1653135300.0
+
+f:send next time
+pi: next time:2022-05-21 06:25:00
+pi:1653135900.0
+
+f:send next time
+pi: next time:2022-05-21 16:34:00
+pi:1653172440.0
+
+f:ack

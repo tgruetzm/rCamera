@@ -1,35 +1,24 @@
 #!/bin/bash
- 
+
 while true
 do
 
-  takePhoto="true"
+  log=/home/pi/rCamera/photoService/log.txt
 
-  while [ "$takePhoto" == "true" ]
+  takePhoto=$(python3 photoService.py)
+  while [[ "$takePhoto" == "true" || "$takePhoto" == "schedule" ]]
   do
-    takePhoto=$(python3 photoService.py)
-    echo $takePhoto
-    if [ "$takePhoto" == "true" ]
+    if [ "$takePhoto" == "schedule" ]
     then
-      ./gpAutoTakePhoto.sh
-      python3 featherCom.py
+      ./schedule.sh >> $log
+      python3 featherCom.py >> $log
+    elif [ "$takePhoto" == "true" ]
+    then
+      ./gpAutoTakePhoto.sh >> $log
+      python3 featherCom.py >> $log
     fi
+    takePhoto=$(python3 photoService.py)
   done
 
   sleep 15
-  # shutdown if no one is logged int
-  duration=$(finger | grep ttyAMA0 | cut -c 41-45)
-  ssh=$(finger | grep pi | grep pts)
-
-  if [ "$ssh" != "" ]
-  then
-	continue
-  fi
-  if [ "$duration" == "" ]  
-  then
-	echo 'nologon' 
-	date
-  	cat pwd.txt | sudo -S shutdown now
-  fi
-
 done

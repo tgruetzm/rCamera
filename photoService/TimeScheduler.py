@@ -12,15 +12,15 @@ today = datetime.now()
 sr = sun.get_local_sunrise_time(today)
 ss = sun.get_local_sunset_time(today)
 
-tomorrow = today + timedelta(days = 0)
+tomorrow = today + timedelta(days = 1)
 
 sunrise = datetime(tomorrow.year, tomorrow.month, tomorrow.day,sr.hour, sr.minute,  tzinfo=timezone(timedelta(hours =-6)))
 sunset = datetime(tomorrow.year, tomorrow.month, tomorrow.day,ss.hour, ss.minute,  tzinfo=timezone(timedelta(hours =-6)))
 
-sunriseTimes = [] # [-20,-10,0,10,20,30]
+sunriseTimes = [-20,-10,0,10,20,30]
 sunsetTimes = [-40,-30,-20,-10,0,10,20]
 
-customTimes = ["12:00","12:02","12:04","12:06"]
+customTimes = ["14:00"]
 
 for t in sunriseTimes:
   t1 = sunrise + timedelta(minutes = t)
