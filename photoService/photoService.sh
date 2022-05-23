@@ -16,6 +16,14 @@ do
     then
       ./gpAutoTakePhoto.sh >> $log
       python3 featherCom.py >> $log
+      serialShell=$(finger | grep ttyAMA0)
+      ssh=$(finger | grep pi | grep pts)
+      if [ "$ssh" == "" ] && [ "$serialShell" == "" ]
+      then
+	echo 'nologon, shut down' >> $log
+	date >> $log
+  	#cat pwd.txt | sudo -S shutdown now
+      fi
     fi
     takePhoto=$(python3 photoService.py)
   done

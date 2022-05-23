@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import serial
 import sys
 import time
@@ -5,7 +6,7 @@ import datetime
 from datetime import datetime, timezone
 import RPi.GPIO as GPIO
 
-waitMax = 10; # seconds
+waitMax = 9; # seconds
 
 def resetFeather():
     GPIO.setwarnings(False)
@@ -16,7 +17,7 @@ def resetFeather():
     GPIO.output(23, GPIO.HIGH)
     time.sleep(.5)
     GPIO.output(23, GPIO.LOW)
-    time.sleep(15)
+    time.sleep(5)
 
 def handshake():
     now = datetime.now(timezone.utc)
@@ -99,16 +100,12 @@ def negotiateNextTime():
 
 
 ser = serial.Serial('/dev/ttyAMA1',timeout = 1)  # open serial port
-handshakeTries = 0
 while True:
     startTime = time.time()
     print("start:" + str(startTime))
     try:
         if handshake() is False:
-            handshakeTries +=1
-            if handshakeTries > 3:
-                handshakeTries = 0
-                resetFeather()
+            resetFeather()
             continue
         success = negotiateNextTime()
         if success is True:
