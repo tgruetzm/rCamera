@@ -22,7 +22,7 @@ do
       then
 	echo 'nologon, shut down' >> $log
 	date >> $log
-  	#cat pwd.txt | sudo -S shutdown now
+  	cat pwd.txt | sudo -S shutdown now
       fi
     fi
     takePhoto=$(python3 photoService.py)
